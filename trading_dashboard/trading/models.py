@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Asset (models.Model):
-    symobol = models.CharField(max_length=20)
+    symbol = models.CharField(max_length=20)
     name = models.CharField(max_length=100)
     asset_type = models.CharField(max_length=50)
 
