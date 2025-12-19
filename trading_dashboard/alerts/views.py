@@ -1,11 +1,11 @@
 from django.shortcuts import render
 
 # Create your views here.
-from rest_framework import serializers
+from rest_framework import generics
 from .models import Alert
+from .serializers import AlertSerializer
 
 
-class AlertSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Alert
-        fields = '__all__'
+class AlertListCreateView(generics.ListCreateAPIView):
+    queryset = Alert.objects.all()
+    serializer_class = AlertSerializer

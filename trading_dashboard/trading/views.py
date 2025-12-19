@@ -1,16 +1,17 @@
 from django.shortcuts import render
 
 # Create your views here.
-from .models import Asset , Portforlio, Trade
-from .serializers import AssetSerializer, PortforlioSerializer, TradeSerializer
+from rest_framework import generics
+from .models import Asset , Portfolio, Trade
+from .serializers import AssetSerializer, PortfolioSerializer, TradeSerializer
 
 class AssetListCreateView(generics.ListCreateAPIView):
     queryset = Asset.objects.all()
     serializer_class = AssetSerializer
 
-class PortfolioListCreateView(generics.ListCreateAPIView):
-    queryset = Portforlio.objects.all()
-    serializer_class = PortforlioSerializer
+class PortfolioDetailView(generics.RetrieveAPIView):
+    queryset = Portfolio.objects.all()
+    serializer_class = PortfolioSerializer
 
 
 class TradeListCreateView(generics.ListCreateAPIView):
