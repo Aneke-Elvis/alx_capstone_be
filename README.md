@@ -22,7 +22,7 @@ The backend is implemented using **Django**, **Django REST Framework**, and **My
 
 * **Backend Framework:** Django
 * **API Framework:** Django REST Framework (DRF)
-* **Database:** MySQL
+* **Database:** SQLite (development)
 * **Authentication:** Django Authentication (Session / Token-based)
 * **Language:** Python 3
 * **Version Control:** Git & GitHub
@@ -81,29 +81,26 @@ The ERD diagram is included in the project documentation (Google Doc) as require
 
 ### Authentication
 
-* `POST /api/auth/register/` – Register a new user
-* `POST /api/auth/login/` – Authenticate user
-
 ### Assets
 
-* `GET /api/assets/` – List all tradable assets
-* `GET /api/assets/{id}/` – Retrieve asset details
+* `GET /api/trading/assets/` – List all tradable assets
+* `GET /api/trading/assets/{id}/` – Retrieve asset details
 
 ### Portfolio
 
-* `GET /api/portfolio/` – Retrieve user portfolio
+* `GET /api/trading/portfolio/{id}` – Retrieve user portfolio
 
 ### Trades
 
-* `GET /api/trades/` – List user trades
-* `POST /api/trades/` – Create a new trade
+* `GET /api/trading/trades/` – List user trades
+* `POST /api/trading/trades/` – Create a new trade
 
 ### Alerts
 
-* `GET /api/alerts/` – List price alerts
-* `POST /api/alerts/` – Create a new alert
+* `GET /api/trading/alerts/` – List price alerts
+* `POST /api/trading/alerts/` – Create a new alert
 
-> All protected endpoints require authentication.
+> Authentication is planned but not enforced at this stage.
 
 ---
 
@@ -138,7 +135,6 @@ Update database credentials in `settings.py`:
 ```python
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'trading_db',
         'USER': 'db_user',
         'PASSWORD': 'db_password',
@@ -174,10 +170,13 @@ python manage.py runserver
 * Project setup completed
 * Core models implemented
 * ERD designed and documented
-* API endpoints planned and partially implemented
+* REST API endpoints working and consumed by frontend
 * Repository initialized and pushed to GitHub
 
 ---
+
+## Frontend Respository link
+ * Frontend Repository: https://github.com/Aneke-Elvis/alx_capstone_fe
 
 ## ⚠️ Challenges Faced
 
@@ -201,7 +200,7 @@ These challenges were resolved by refining the ERD and aligning it strictly with
 
 ## 👨‍💻 Author
 
-**Name:** Aneke Elvis
+**Name: Aneke Elvis**
 
 Built as part of the **ALX Software Engineering Capstone Project**.
 
